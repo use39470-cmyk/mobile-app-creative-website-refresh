@@ -1,0 +1,1 @@
+import{c as e,p as t,u as n}from"./audio.BVyMN1l2.js";document.querySelectorAll(`[data-sound-toggle]`).forEach(r=>{let i=e=>{r.setAttribute(`aria-pressed`,String(e)),r.setAttribute(`aria-label`,e?`Sound on. Mute the score`:`Sound off. Turn the score on`),r.classList.toggle(`is-on`,e)};i(e()),n(i),r.addEventListener(`click`,()=>t())});

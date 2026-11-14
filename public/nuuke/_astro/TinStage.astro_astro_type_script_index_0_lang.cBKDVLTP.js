@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["_astro/fishwife.DavDWSWz.js","_astro/motion.BXpYRfU6.js","_astro/core.DZalETXP.js","_astro/gl-support.B6dJgBJh.js"])))=>i.map(i=>d[i]);
+import{i as e}from"./motion.BXpYRfU6.js";import{t}from"./preload-helper.B3nfOi5I.js";document.querySelectorAll(`[data-fw-tin]`).forEach(n=>{e(n,()=>t(()=>import(`./fishwife.DavDWSWz.js`).then(e=>e.init(n)),__vite__mapDeps([0,1,2,3])))});

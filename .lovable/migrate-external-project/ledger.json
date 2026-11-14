@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "source": {
+    "type": "code-archive-and-published-site",
+    "archive": "nuuke-site-revival-main.zip",
+    "published_url": "https://nuuke.us/"
+  },
+  "capabilities": [
+    {
+      "capability": "static application pages and navigation",
+      "source": "27 generated HTML pages and local assets in the supplied archive",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "The original contact form opens an email client; configuring direct delivery requires an email provider and remains unverified."
+    },
+    {
+      "capability": "database schema and records",
+      "source": "No application database, schema, or record export detected",
+      "outcome": "not_applicable",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "user authentication and authorization",
+      "source": "No account sign-in or authorization system detected",
+      "outcome": "not_applicable",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "contact form delivery",
+      "source": "The exported contact form has no submission endpoint or connected delivery provider",
+      "outcome": "preserve_as_unconnected_form",
+      "status": "pending",
+      "next_action": "The original contact form opens an email client; configuring direct delivery requires an email provider and remains unverified."
+    },
+    {
+      "capability": "uploaded and bundled media bytes",
+      "source": "Images, fonts, logos, and videos bundled in the supplied archive",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "external services and links",
+      "source": "Outbound website links found in the static pages; no runtime integration credentials detected",
+      "outcome": "preserve",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "public endpoints, callbacks, webhooks, and schedules",
+      "source": "None detected in the archive",
+      "outcome": "not_applicable",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "runtime secrets",
+      "source": "No application environment variables detected",
+      "outcome": "not_applicable",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "domain cutover and deployment",
+      "source": "Source domain nuuke.us is not controlled by this project migration",
+      "outcome": "leave_existing_domain_untouched",
+      "status": "pending",
+      "next_action": "Optional: attach a Mobile App Creative domain if you want a custom URL."
+    }
+  ]
+}

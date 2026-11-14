@@ -153,3 +153,24 @@
     color: var(--color-foreground);
   }
 }
+
+.site-preview {
+  min-height: 100svh;
+  background-color: var(--background);
+}
+
+.site-preview-frame {
+  display: block;
+  width: 100%;
+  height: 100dvh;
+  min-height: 100svh;
+  border: 0;
+  background-color: var(--background);
+}
+
+@media (max-width: 640px) {
+  .site-preview-frame {
+    width: 100vw;
+    height: 100dvh;
+  }
+}

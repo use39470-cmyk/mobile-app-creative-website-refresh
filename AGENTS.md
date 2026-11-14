@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Architecture
+
+- Keep the imported multi-page site and its original static assets under `public/nuuke`, with `/` embedding the supplied homepage; this preserves its page interactions and exported visual design. Keep verified original animation bundles in this static directory because the archive contains damaged compiled scripts.

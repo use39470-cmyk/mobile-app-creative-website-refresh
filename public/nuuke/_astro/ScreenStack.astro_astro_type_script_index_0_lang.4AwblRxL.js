@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["_astro/stack.B-W2HOgZ.js","_astro/motion.BXpYRfU6.js","_astro/core.DZalETXP.js","_astro/gl-support.B6dJgBJh.js"])))=>i.map(i=>d[i]);
+import{i as e}from"./motion.BXpYRfU6.js";import{t}from"./preload-helper.B3nfOi5I.js";document.querySelectorAll(`[data-stack]`).forEach(n=>{let r=n.querySelector(`[data-stack-canvas]`),i=JSON.parse(n.querySelector(`[data-stack-data]`).textContent||`{}`);e(n,()=>t(()=>import(`./stack.B-W2HOgZ.js`).then(e=>e.initStack(n,r,i.layers,i.accent)),__vite__mapDeps([0,1,2,3])))});
