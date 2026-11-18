@@ -18,3 +18,4 @@
 @keyframes ab-phone-float{50%{transform:rotate(2deg) translateY(-12px)}}
 @media (max-width:700px){.ab-hero-rocket[data-astro-cid-cvz4ynoi]{height:50%;right:5%;top:22%;}.ab-phone-screen{padding-top:18%;}.ab-phone-label{margin-top:22%;}}
 @media (prefers-reduced-motion:reduce){.ab-phone-fallback{animation:none}}
+@media (max-width:640px){.ab-hero-rocket[data-astro-cid-cvz4ynoi]{height:34%;top:auto;bottom:6%;right:4%;}.ab-hero-hint[data-astro-cid-cvz4ynoi]{display:none}}

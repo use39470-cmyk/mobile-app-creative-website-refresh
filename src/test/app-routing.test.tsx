@@ -23,7 +23,7 @@ describe("App routing", () => {
       .filter((entry): entry is string => typeof entry === "string" && entry.endsWith(".html"))
       .map((entry) => join(websiteDirectory, entry));
 
-    expect(htmlPages).toHaveLength(32);
+    expect(htmlPages).toHaveLength(35);
     for (const pagePath of htmlPages) {
       const page = readFileSync(pagePath, "utf8");
       expect(page, pagePath).toContain("Mobile App Creative");
@@ -37,14 +37,23 @@ describe("App routing", () => {
 
   it("links each core service to its own quote-based pricing page", () => {
     const websiteDirectory = join(process.cwd(), "public/nuuke");
-    const services = ["mobile-app", "animation", "digital-marketing", "ai-automation"];
+    const services = [
+      ["mobile-app", "Mobile App"],
+      ["video-production", "Video Production"],
+      ["digital-marketing", "Digital Marketing"],
+      ["3d-website-design", "3D Website Design"],
+      ["animation", "2D/3D Animation"],
+      ["paid-ads", "Paid Ads"],
+      ["ai-automation", "AI Automation"],
+    ];
     const pricing = readFileSync(join(websiteDirectory, "pricing.html"), "utf8");
 
-    for (const service of services) {
+    for (const [service, inquiryValue] of services) {
       const detailPath = join(websiteDirectory, "pricing", `${service}.html`);
       const detail = readFileSync(detailPath, "utf8");
       expect(pricing).toContain(`pricing/${service}.html`);
       expect(detail).toContain("Request a tailored quote");
+      expect(detail).toContain(`?service=${inquiryValue}#main`);
       expect(detail).not.toMatch(/\$\s?\d/);
     }
 
