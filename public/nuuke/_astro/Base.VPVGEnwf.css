@@ -3,3 +3,6 @@
 .logo[data-astro-cid-nen7h5rs] img[data-astro-cid-nen7h5rs]{height:48px;width:auto}@media (width<=640px){.logo[data-astro-cid-nen7h5rs] img[data-astro-cid-nen7h5rs]{height:32px}}
 
 @media (max-width:640px){.logo[data-astro-cid-nen7h5rs] img[data-astro-cid-nen7h5rs]{width:min(42vw,10.5rem);height:auto;max-height:3rem;object-fit:contain}}
+
+/* Pricing shortcut in the shared site header. */
+.header-pricing{right:calc(var(--gutter) + 10.25rem);font:600 var(--fs-label) var(--font-ui);text-transform:uppercase;letter-spacing:var(--tracking-label);border:1px solid var(--line-strong);border-radius:var(--r-pill);padding:.6rem 1rem;background:var(--bg-2);position:absolute;transition:background var(--dur-1),color var(--dur-1)}.header-pricing:hover{background:var(--ink);color:var(--bg)}@media (width<=760px){.header-pricing{display:none}}
