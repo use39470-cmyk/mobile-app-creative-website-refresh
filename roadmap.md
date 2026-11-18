@@ -4,3 +4,5 @@
 - [x] Run the full app-routing/branding tests and verify all archived pages plus the mobile homepage in the preview.
 - [ ] Replace the About-page rocket with a locally loaded, animated 3D phone.
 - [ ] Verify the opening on desktop and mobile, keep existing About interactions, and commit.
+- [ ] Add a Google Partner section to the homepage using the supplied partner images.
+- [ ] Add a header Pricing link, a homepage pricing preview with a View All Pricing button, and a pricing page covering every service; pricing amounts await the user's confirmed rates.
