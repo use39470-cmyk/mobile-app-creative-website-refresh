@@ -54,7 +54,7 @@ describe("App routing", () => {
       expect(pricing).toContain(`pricing/${service}.html`);
       expect(detail).toContain("Request a tailored quote");
       expect(detail).toContain(`?service=${inquiryValue}#main`);
-      expect(detail).not.toMatch(/\$\s?\d/);
+      if (service !== "animation") expect(detail).not.toMatch(/\$\s?\d/);
     }
 
     const homepage = readFileSync(join(websiteDirectory, "index.html"), "utf8");
@@ -63,16 +63,36 @@ describe("App routing", () => {
     expect(homepage).toContain('href="pricing/animation.html"');
     expect(homepage).toContain('href="pricing/digital-marketing.html"');
     expect(homepage).toContain('href="pricing/ai-automation.html"');
-    expect(homepage).toContain("partner-proof");
+    expect(homepage).toContain("footer-certifications");
   });
 
-  it("retains the supplied homepage sections and adds partnership and pricing sections", () => {
+  it("retains the supplied homepage sections and adds pricing with footer badges", () => {
     const homepage = readFileSync(join(process.cwd(), "public/nuuke/index.html"), "utf8");
 
-    expect(homepage.match(/<section\b/gi)).toHaveLength(11);
+    expect(homepage.match(/<section\b/gi)).toHaveLength(10);
     expect(homepage).toContain('class="h-w h-w--brand"');
     expect(homepage).toContain('style="white-space:normal;overflow-wrap:anywhere"');
     expect(homepage).toContain('/__l5e/assets-v1/6883227f-c191-4873-810a-3e55ecd789bb/mobile-app-creative-header-logo.jpg');
     expect(readFileSync(join(process.cwd(), "public/audio/ambient.webm"))).toHaveLength(820932);
   });
+
+  const packageRules = [
+    { tier: "starter", price: 499, duration: "up to 30 seconds", revisions: "1 round of revisions", delivery: "5–7 business days" },
+    { tier: "professional", price: 999, duration: "up to 60 seconds", revisions: "2 rounds of revisions", delivery: "10–14 business days" },
+    { tier: "premium", price: 1999, duration: "up to 90 seconds", revisions: "3 rounds of revisions", delivery: "2–4 weeks" },
+  ];
+  for (const rule of packageRules) {
+    it(`preserves the supplied ${rule.tier} price, scope, revisions and delivery on both pricing pages`, () => {
+      for (const page of ["pricing.html", "pricing/animation.html"]) {
+        const content = readFileSync(join(process.cwd(), "public/nuuke", page), "utf8");
+        const card = content.match(new RegExp(`<article class="package-card" data-package="${rule.tier}"[\\s\\S]*?</article>`))?.[0];
+        expect(card).toBeDefined();
+        expect(card).toContain(`data-price="${rule.price}"`);
+        expect(card).toContain(rule.duration);
+        expect(card).toContain(rule.revisions);
+        expect(card).toContain(rule.delivery);
+        expect(card).toContain(`package=${rule.tier}`);
+      }
+    });
+  }
 });

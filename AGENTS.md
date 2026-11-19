@@ -33,3 +33,5 @@ use the editor.
 
 - Keep the imported multi-page site and its original static assets under `public/nuuke`, with `/` embedding the supplied homepage; this preserves its page interactions and exported visual design. Keep verified original animation bundles in this static directory because the archive contains damaged compiled scripts.
 - Keep service-specific pricing pages and their shared presentation alongside the imported pages under `public/nuuke`, so existing multipage navigation and interactions remain intact.
+- Render confirmed packages in both the static pricing overview and service detail; inquiry links carry a package identifier resolved by an allowlist on the contact page, so selected package names and prices remain consistent.
+- Keep footer badge styling in one stylesheet loaded by every imported page, so shared footer changes preserve the original compiled layouts.

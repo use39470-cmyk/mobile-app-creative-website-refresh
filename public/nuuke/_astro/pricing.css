@@ -48,3 +48,17 @@
 @media (max-width:560px){.pricing-item{grid-template-columns:2.5rem minmax(0,1fr);gap:.8rem;padding:1.25rem .25rem}.pricing-quote{grid-column:2;justify-self:start}.pricing-item:hover{padding-inline:.5rem}.home-pricing-row{grid-template-columns:2.5rem minmax(0,1fr);gap:.6rem}.home-pricing-action{grid-column:2}.partner-proof-grid{gap:8px}.partner-proof-item{min-height:95px;padding:10px}.partner-proof-item img{max-height:85px}.pricing-intro h1{font-size:var(--fs-3xl)}}
 @media (prefers-reduced-motion:reduce){.home-pricing-row,.home-pricing-all,.pricing-primary,.pricing-item,.pricing-quote{transition:none}}
 .pricing-factors{border-top:1px solid var(--line-strong);padding:0;margin:2rem 0 0;list-style:none;max-width:58rem}.pricing-factors li{padding:1.2rem .5rem;border-bottom:1px solid var(--line);font:600 var(--fs-lg) var(--font-display)}.pricing-factors li:before{content:"+";color:var(--accent);margin-right:1rem}
+.package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;align-items:stretch}
+.package-card{display:flex;flex-direction:column;padding:2rem;min-width:0;border:1px solid var(--line-strong);border-radius:8px;background:var(--surface)}
+.package-card[data-package="professional"]{border-color:var(--accent)}
+.package-card h3{font:700 1.4rem/1.25 var(--font-display);letter-spacing:0;margin-top:.8rem;min-height:3.5em}
+.package-price{font:800 3rem/1.1 var(--font-display);letter-spacing:0;margin-block:1.4rem;color:var(--ink)}
+.package-description{font-size:1rem;line-height:1.6;color:var(--ink-2);min-height:5em}
+.package-features{padding:0;list-style:none;margin:1.5rem 0;flex:1}
+.package-features li{position:relative;padding:.55rem 0 .55rem 1.5rem;font-size:.9rem;line-height:1.5;border-bottom:1px solid var(--line)}
+.package-features li:before{content:"✓";position:absolute;left:0;color:var(--accent)}
+.package-delivery{font-size:.875rem;color:var(--ink-2);line-height:1.6;margin-top:1rem}
+.package-delivery strong{display:block;color:var(--ink)}
+.package-card .pricing-primary{justify-content:center;width:100%;border-radius:4px}
+.pricing-intro h1{font-size:5rem}
+@media(max-width:1000px){.package-grid{grid-template-columns:1fr}.package-card{padding:1.5rem}.package-card h3,.package-description{min-height:0}.pricing-intro h1{font-size:3rem}.pricing-intro{padding-bottom:3rem}.package-card .pricing-primary{width:auto;align-self:flex-start}}

@@ -1,0 +1,6 @@
+.footer-certifications{padding-block:2rem;border-top:1px solid var(--line)}
+.footer-certifications>.t-label{color:var(--muted);margin-bottom:1rem}
+.footer-badge-list{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.footer-badge{width:150px;height:80px;padding:8px;display:grid;place-items:center;border:1px solid var(--line);border-radius:4px;background:var(--ink)}
+.footer-badge img{width:100%;height:100%;object-fit:contain;min-height:0}
+@media(max-width:560px){.footer-badge-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.footer-badge{width:100%;height:76px}.footer-badge:last-child{grid-column:1/-1;width:calc(50% - .375rem);justify-self:center}}
