@@ -8,4 +8,4 @@
 - [x] Add a header Pricing link, a homepage pricing preview with a View All Pricing button, and separate quote-based pricing pages for every service in the project inquiry form; prices await the user's confirmed rates.
 - [x] Add the supplied animation packages to the pricing overview and animation pricing page, and verify package inquiry links.
 - [x] Move all supplied certification badges into every site footer and remove mirrored-site text from every page; verify reloads and mobile pricing.
-- [ ] Add other services' packages — waiting for the user's package details.
+- [ ] Other services packages built — waiting on client prices (currently "Custom quote")
