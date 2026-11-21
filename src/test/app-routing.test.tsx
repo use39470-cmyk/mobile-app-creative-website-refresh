@@ -54,7 +54,9 @@ describe("App routing", () => {
       expect(pricing).toContain(`pricing/${service}.html`);
       expect(detail).toContain("Request a tailored quote");
       expect(detail).toContain(`?service=${inquiryValue}#main`);
-      if (service !== "animation") expect(detail).not.toMatch(/\$\s?\d/);
+      expect(detail).toContain("$499");
+      expect(detail).toContain("$999");
+      expect(detail).toContain("$1,999");
     }
 
     const homepage = readFileSync(join(websiteDirectory, "index.html"), "utf8");
