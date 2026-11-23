@@ -14,3 +14,4 @@
 .footer-badge img{border-radius:12px}
 .h-q.h-q{font-size:clamp(2.6rem,min(7vw,15svh),8.5rem)!important;line-height:.95!important;width:min(100%,70rem)!important;max-width:100%!important}
 .h-q .h-w,.h-q .h-w--brand{white-space:normal!important;width:auto!important;max-width:100%!important}
+.fin-logo-wrap{display:none!important}
