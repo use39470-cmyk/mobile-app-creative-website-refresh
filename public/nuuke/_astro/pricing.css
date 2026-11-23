@@ -67,3 +67,8 @@
 .pkg-tab:hover{border-color:var(--accent)}
 .pkg-tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .package-price.package-price--quote{font-size:2rem}
+.home-content-row{min-height:96px}.home-content-desc{display:block;margin-top:.35rem;color:var(--ink-2);font-size:var(--fs-sm);line-height:var(--lh-body);max-width:52ch}
+.home-philosophy{padding:clamp(4.5rem,9vw,9rem) 0;border-bottom:1px solid var(--line);text-align:center}
+.home-philosophy h2{font:800 var(--fs-2xl)/var(--lh-tight) var(--font-display);max-width:20ch;margin:1rem auto}
+.home-philosophy p:last-child{color:var(--ink-2);max-width:60ch;margin:0 auto;line-height:var(--lh-body)}
+@media (max-width:760px){.home-content-row{grid-template-columns:2.5rem minmax(0,1fr)}.home-content-row>span:last-child{display:none}}

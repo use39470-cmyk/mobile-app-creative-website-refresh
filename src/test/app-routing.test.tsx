@@ -71,7 +71,7 @@ describe("App routing", () => {
   it("retains the supplied homepage sections and adds pricing with footer badges", () => {
     const homepage = readFileSync(join(process.cwd(), "public/nuuke/index.html"), "utf8");
 
-    expect(homepage.match(/<section\b/gi)).toHaveLength(10);
+    expect(homepage.match(/<section\b/gi)).toHaveLength(13);
     expect(homepage).toContain('class="h-w h-w--brand"');
     expect(homepage).toContain('style="white-space:normal;overflow-wrap:anywhere"');
     expect(homepage).toContain('brand/badges/mobile-app-creative-header-logo.jpg');
