@@ -3,4 +3,14 @@
 .footer-badge-list{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
 .footer-badge{width:150px;height:80px;padding:8px;display:grid;place-items:center;border:1px solid var(--line);border-radius:4px;background:var(--ink)}
 .footer-badge img{width:100%;height:100%;object-fit:contain;min-height:0}
-@media(max-width:560px){.footer-badge-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.footer-badge{width:100%;height:76px}.footer-badge:last-child{grid-column:1/-1;width:calc(50% - .375rem);justify-self:center}}
+@media(max-width:560px){.footer-badge-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.footer-badge{width:100%;height:76px}.footer-badge:last-child{grid-column:1/-1;width:calc(50% - .375rem);justify-self:center}}.footer-brand>img{display:none!important}
+.footer-certifications{padding-block:2.5rem}
+.footer-badge-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(1rem,3vw,3rem);align-items:center;justify-items:center;width:100%}
+.footer-badge,.footer-badge:last-child{width:100%;height:96px;padding:0;border:0;border-radius:0;background:transparent;grid-column:auto;justify-self:stretch}
+@media(max-width:760px){.footer-badge-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.footer-badge-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}.footer-badge,.footer-badge:last-child{height:80px}.footer-badge:last-child{grid-column:1/-1;width:50%;justify-self:center}}
+.site-header .logo img{background:transparent}
+.h-w,.h-q .h-w{overflow:visible!important;padding-bottom:.14em!important}
+.footer-badge img{border-radius:12px}
+.h-q.h-q{font-size:clamp(2.6rem,min(7vw,15svh),8.5rem)!important;line-height:.95!important;width:min(100%,70rem)!important;max-width:100%!important}
+.h-q .h-w,.h-q .h-w--brand{white-space:normal!important;width:auto!important;max-width:100%!important}
