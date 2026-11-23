@@ -9,3 +9,4 @@
 - [x] Add the supplied animation packages to the pricing overview and animation pricing page, and verify package inquiry links.
 - [x] Move all supplied certification badges into every site footer and remove mirrored-site text from every page; verify reloads and mobile pricing.
 - [x] Build packages for every service and put the confirmed prices ($499 / $999 / $1,999) on all of them.
+- [x] Enlarge the 3D launch phone (pad and space scenes), seat it on the launch pad, and verify the full desktop launch flow.
