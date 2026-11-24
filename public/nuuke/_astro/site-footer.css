@@ -24,9 +24,6 @@
 .footer-social-link{width:52px;height:52px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);color:var(--ink);background:transparent;transition:transform .25s ease,border-color .25s ease,color .25s ease,box-shadow .25s ease}
 .footer-social-link:hover{transform:translateY(-3px);border-color:transparent;color:#fff;background:linear-gradient(135deg,#ff5fa2,#8b5cf6);box-shadow:0 8px 24px rgba(139,92,246,.35)}
 @media(max-width:560px){.footer-social-link{width:46px;height:46px}}
-.footer-contact{display:flex;flex-wrap:wrap;gap:.75rem 2.5rem;align-items:center;justify-content:center;padding-block:0 1.75rem;color:var(--muted);font-family:var(--font-ui);font-size:var(--fs-sm)}
-.footer-contact-item{display:inline-flex;align-items:center;gap:.5rem;color:var(--muted);text-decoration:none;transition:color .25s ease}
-a.footer-contact-item:hover{color:var(--ink)}
-.footer-contact-item svg{flex:none;opacity:.7}
 .footer-bottom[data-astro-cid-jo6i4kqk]{margin-top:var(--s-4)!important}
 .footer-social{padding-block:0 1.75rem}
+.h-finale{display:none!important}
