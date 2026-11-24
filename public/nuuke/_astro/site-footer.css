@@ -17,7 +17,7 @@
 .fin-logo-wrap{display:none!important}
 .h-msg.h-msg{padding-block:clamp(3rem,6vw,5rem) clamp(2rem,4vw,3.5rem)!important}.h-msg .h-msg-body{margin-top:var(--s-4)!important}
 .h-msg+.h-film{padding-top:clamp(1.5rem,3vw,3rem)!important}
-.h-msg .h-msg-body{display:flex!important;justify-content:center!important;text-align:center!important}.h-msg .h-msg-body .t-lead{max-width:52rem!important;margin-inline:auto!important;text-align:center!important}
+.h-msg .h-msg-body{display:block!important;text-align:left!important}.h-msg .h-msg-body .t-lead{max-width:none!important;width:100%!important;margin-inline:0!important;text-align:left!important}
 .footer-social{padding-block:0 2.5rem;display:grid;justify-items:center;gap:1rem}
 .footer-social>.t-label{color:var(--muted);margin:0}
 .footer-social-list{display:flex;gap:1rem;align-items:center;justify-content:center}
