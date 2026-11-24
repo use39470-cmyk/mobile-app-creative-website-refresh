@@ -30,7 +30,7 @@ describe("App routing", () => {
       expect(page, pagePath).toContain("info@mobileappcreative.com");
       expect(page, pagePath).not.toMatch(/(?<![\w/@.:-])nuuke(?![\w/.@:-])/i);
       expect(page, pagePath).toContain(
-        "brand/badges/mobile-app-creative-logo-t.png",
+        "brand/badges/mobile-app-creative-logo-hd.png",
       );
     }
   });
@@ -74,7 +74,7 @@ describe("App routing", () => {
     expect(homepage.match(/<section\b/gi)).toHaveLength(13);
     expect(homepage).toContain('class="h-w h-w--brand"');
     expect(homepage).toContain('style="white-space:normal;overflow-wrap:anywhere"');
-    expect(homepage).toContain('brand/badges/mobile-app-creative-logo-t.png');
+    expect(homepage).toContain('brand/badges/mobile-app-creative-logo-hd.png');
     expect(readFileSync(join(process.cwd(), "public/audio/ambient.webm"))).toHaveLength(820932);
   });
 
