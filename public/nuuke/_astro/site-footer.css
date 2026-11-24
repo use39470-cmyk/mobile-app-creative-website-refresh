@@ -18,3 +18,9 @@
 .h-msg.h-msg{padding-block:clamp(3rem,6vw,5rem) clamp(2rem,4vw,3.5rem)!important}.h-msg .h-msg-body{margin-top:var(--s-4)!important}
 .h-msg+.h-film{padding-top:clamp(1.5rem,3vw,3rem)!important}
 .h-msg .h-msg-body{display:flex!important;justify-content:center!important;text-align:center!important}.h-msg .h-msg-body .t-lead{max-width:52rem!important;margin-inline:auto!important;text-align:center!important}
+.footer-social{padding-block:0 2.5rem;display:grid;justify-items:center;gap:1rem}
+.footer-social>.t-label{color:var(--muted);margin:0}
+.footer-social-list{display:flex;gap:1rem;align-items:center;justify-content:center}
+.footer-social-link{width:52px;height:52px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);color:var(--ink);background:transparent;transition:transform .25s ease,border-color .25s ease,color .25s ease,box-shadow .25s ease}
+.footer-social-link:hover{transform:translateY(-3px);border-color:transparent;color:#fff;background:linear-gradient(135deg,#ff5fa2,#8b5cf6);box-shadow:0 8px 24px rgba(139,92,246,.35)}
+@media(max-width:560px){.footer-social-link{width:46px;height:46px}}

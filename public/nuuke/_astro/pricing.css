@@ -72,3 +72,5 @@
 .home-philosophy h2{font:800 var(--fs-2xl)/var(--lh-tight) var(--font-display);max-width:20ch;margin:1rem auto}
 .home-philosophy p:last-child{color:var(--ink-2);max-width:60ch;margin:0 auto;line-height:var(--lh-body)}
 @media (max-width:760px){.home-content-row{grid-template-columns:2.5rem minmax(0,1fr)}.home-content-row>span:last-child{display:none}}
+.package-price.package-price{display:inline-block;padding:.35em .7em;border-radius:14px;background:linear-gradient(135deg,#ff5fa2,#8b5cf6);color:#fff;letter-spacing:.01em;box-shadow:0 10px 30px rgba(139,92,246,.35),inset 0 1px 0 rgba(255,255,255,.25)}
+.package-price.package-price--quote{font-size:1.6rem;padding:.4em .8em}
