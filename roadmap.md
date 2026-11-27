@@ -10,3 +10,5 @@
 - [x] Move all supplied certification badges into every site footer and remove mirrored-site text from every page; verify reloads and mobile pricing.
 - [x] Build packages for every service and put the confirmed prices ($499 / $999 / $1,999) on all of them.
 - [x] Enlarge the 3D launch phone (pad and space scenes), seat it on the launch pad, and verify the full desktop launch flow.
+- [x] Research and apply distinct market-aligned prices across all services while preserving the supplied animation packages; synchronize inquiries and tests.
+- [x] Enlarge the header logo and keep it visible while scrolling; verify desktop and mobile.

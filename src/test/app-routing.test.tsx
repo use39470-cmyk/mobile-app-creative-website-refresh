@@ -54,9 +54,6 @@ describe("App routing", () => {
       expect(pricing).toContain(`pricing/${service}.html`);
       expect(detail).toContain("Request a tailored quote");
       expect(detail).toContain(`?service=${inquiryValue}#main`);
-      expect(detail).toContain("$499");
-      expect(detail).toContain("$999");
-      expect(detail).toContain("$1,999");
     }
 
     const homepage = readFileSync(join(websiteDirectory, "index.html"), "utf8");
@@ -77,6 +74,46 @@ describe("App routing", () => {
     expect(homepage).toContain('brand/badges/mobile-app-creative-logo-hd.png');
     expect(readFileSync(join(process.cwd(), "public/audio/ambient.webm"))).toHaveLength(820932);
   });
+
+  const servicePackageRules = [
+    { service: "mobile-app", prices: [7500, 15000, 35000], monthly: false },
+    { service: "3d-website-design", prices: [1500, 4500, 12000], monthly: false },
+    { service: "video-production", prices: [1500, 4500, 10000], monthly: false },
+    { service: "digital-marketing", prices: [1000, 2500, 5000], monthly: true },
+    { service: "paid-ads", prices: [750, 1500, 3500], monthly: true },
+    { service: "ai-automation", prices: [2500, 6500, 15000], monthly: false },
+  ] as const;
+
+  for (const { service, prices, monthly } of servicePackageRules) {
+    it(`uses market-aligned package prices for ${service} everywhere`, () => {
+      const websiteDirectory = join(process.cwd(), "public/nuuke");
+      const overview = readFileSync(join(websiteDirectory, "pricing.html"), "utf8");
+      const detail = readFileSync(join(websiteDirectory, `pricing/${service}.html`), "utf8");
+      const contact = readFileSync(join(websiteDirectory, "contact.html"), "utf8");
+
+      prices.forEach((price, index) => {
+        const tier = ["starter", "professional", "premium"][index]!;
+        const packageId = `${service}-${tier}`;
+        const label = `From $${price.toLocaleString("en-US")}${monthly ? "/mo" : ""}`;
+
+        for (const page of [overview, detail]) {
+          const start = page.indexOf(`<article class="package-card" data-package="${packageId}">`);
+          expect(start, `${packageId} card`).toBeGreaterThan(-1);
+          const card = page.slice(start, page.indexOf("</article>", start));
+          expect(card).toContain(`<p class="package-price">${label}</p>`);
+        }
+
+        expect(contact).toMatch(new RegExp(`"${packageId}": \\{[^}]*"price": ${price}(?:,|\\})`));
+        if (monthly) {
+          expect(contact).toMatch(new RegExp(`"${packageId}": \\{[^}]*"billing": "month"`));
+        }
+      });
+
+      const startingLabel = `From $${prices[0].toLocaleString("en-US")}${monthly ? "/mo" : ""}`;
+      expect(overview).toContain(`3 packages · ${startingLabel}`);
+      expect(detail).toContain(monthly ? "Monthly starting prices in USD" : "Starting prices in USD");
+    });
+  }
 
   const packageRules = [
     { tier: "starter", price: 499, duration: "up to 30 seconds", revisions: "1 round of revisions", delivery: "5–7 business days" },

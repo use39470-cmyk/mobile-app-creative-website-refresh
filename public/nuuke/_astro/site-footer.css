@@ -27,3 +27,6 @@
 .footer-bottom[data-astro-cid-jo6i4kqk]{margin-top:var(--s-4)!important}
 .footer-social{padding-block:0 1.75rem}
 .h-finale{display:none!important}
+.site-header[data-astro-cid-nen7h5rs].is-hidden{transform:none!important;visibility:visible;opacity:1}
+.site-header .logo img{height:60px!important;width:auto!important;max-height:none!important}
+@media(max-width:640px){.site-header .logo img{width:min(52vw,13rem)!important;height:auto!important;max-height:3.5rem!important}}
