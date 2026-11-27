@@ -17,13 +17,19 @@ export function inquiryOptions(page: number, search: string) { return queryOptio
     return { rows: data ?? [], total: count ?? 0 };
   },
 }); }
-export const conversationOptions = queryOptions({ queryKey: ['conversations'], refetchInterval: 4000, queryFn: async () => {
-  const { data, error } = await supabase.from('chat_conversations').select('id,visitor_name,visitor_email,status,last_message,last_sender,created_at,updated_at').order('updated_at', { ascending: false }).limit(100);
+export function conversationOptions(page = 0) { return queryOptions({ queryKey: ['conversations', page], refetchInterval: 4000, queryFn: async () => {
+  const { data, error } = await supabase.from('chat_conversations').select('id,visitor_name,visitor_email,status,last_message,last_sender,created_at,updated_at').order('updated_at', { ascending: false }).range(page * 25, page * 25 + 24);
   if (error) throw new Error('Could not load chats.');
   return data ?? [];
-} });
+} }); }
 export function messageOptions(id: string, page = 0) { return queryOptions({ queryKey: ['messages', id, page], refetchInterval: 4000, queryFn: async () => {
   const { data, error } = await supabase.from('chat_messages').select('*').eq('conversation_id', id).order('created_at', { ascending: false }).range(page * 100, page * 100 + 99);
   if (error) throw new Error('Could not load messages.');
   return (data ?? []).reverse();
 } }); }
+export const profileOptions=queryOptions({queryKey:['profile'],queryFn:async()=>{
+ const {data:user,error:authError}=await supabase.auth.getUser();if(authError||!user.user)throw new Error('Please sign in.');
+ const {data,error}=await supabase.from('profiles').select('*').eq('id',user.user.id).single();if(error)throw new Error('Could not load profile.');
+ let avatarUrl='';if(data.avatar_path){const {data:signed}=await supabase.storage.from('admin-avatars').createSignedUrl(data.avatar_path,3600);avatarUrl=signed?.signedUrl??'';}
+ return {...data,email:user.user.email??'',avatarUrl};
+}});

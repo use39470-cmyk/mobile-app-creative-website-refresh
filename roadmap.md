@@ -13,7 +13,9 @@
 - [x] Research and apply distinct market-aligned prices across all services while preserving the supplied animation packages; synchronize inquiries and tests.
 - [x] Enlarge the header logo and keep it visible while scrolling; verify desktop and mobile.
 
-- [ ] Add secure admin login and footer links.
-- [ ] Save contact/package inquiries and show them in admin.
-- [ ] Add visitor chat and a separate admin chat page with replies.
-- [ ] Verify submissions, permissions, and two-way chat.
+- [x] Add secure admin login and footer links; send account invitation because the requested password is rejected by password protection.
+- [x] Save contact/package inquiries and show them in admin.
+- [x] Add visitor chat and a separate admin chat page with replies.
+- [x] Verify submissions, permissions, and two-way chat.
+
+- [x] Add editable admin profile with name and avatar.

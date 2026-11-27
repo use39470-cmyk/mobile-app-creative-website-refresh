@@ -41,7 +41,7 @@ export async function submitContact(request: Request) {
     const { supabaseAdmin } = await import('@/integrations/supabase/client.server');
     const { name, email, phone, services, budget, details } = parsed.data;
     const { data, error } = await supabaseAdmin.from('contact_submissions').insert({ name, email, phone, services, budget, details,
-      package_id: pkg ? parsed.data.packageId : null, package_name: pkg?.name ?? null,
+      package_id: pkg ? (parsed.data.packageId ?? null) : null, package_name: pkg?.name ?? null,
       package_price: pkg?.price ?? null, package_billing: pkg?.billing ?? null,
     }).select('id').single();
     if (error || !data) throw new Error('storage');

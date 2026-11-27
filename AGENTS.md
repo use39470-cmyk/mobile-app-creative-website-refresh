@@ -39,3 +39,5 @@ use the editor.
 - Keep support UI in TanStack routes and bridge the imported static pages through one shared support widget, so original animations and navigation stay intact.
 - Protect inquiries and admin chat actions with database admin-role policies; visitor chat access uses hashed, high-entropy per-conversation capability keys checked only in server handlers.
 - Resolve inquiry package amounts from the server allowlist rather than visitor-provided prices, so package quotes remain trustworthy.
+- Keep admin profile attributes in owner-scoped profiles and private avatar storage; never place privileges in profile fields.
+- Keep inquiry and conversation pagination/filter state in route search parameters so admin links and reloads preserve context.

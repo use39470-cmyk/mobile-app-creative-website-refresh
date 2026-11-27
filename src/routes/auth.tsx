@@ -20,7 +20,7 @@ function AdminLogin() {
       }
       const { error } = await supabase.auth.signInWithPassword({ email,password });
       if(error) { setNotice('Unable to sign in. Check your email and password.'); return; }
-      await navigate({ to: '/admin' });
+      await navigate({ to: '/admin', search: {page:0,search:''} });
     } catch { setNotice('Unable to continue. Please try again.'); } finally { setBusy(false); }
   }
   return <main className="support-theme auth-layout"><div className="auth-content">

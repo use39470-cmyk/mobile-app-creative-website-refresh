@@ -1,0 +1,14 @@
+CREATE TABLE public.profiles(id uuid PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,display_name text NOT NULL DEFAULT '',avatar_path text NOT NULL DEFAULT '');
+GRANT SELECT,UPDATE ON public.profiles TO authenticated;
+GRANT ALL ON public.profiles TO service_role;
+ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
+CREATE POLICY own_profile_read ON public.profiles FOR SELECT TO authenticated USING ((select auth.uid())=id);
+CREATE POLICY own_profile_update ON public.profiles FOR UPDATE TO authenticated USING ((select auth.uid())=id) WITH CHECK ((select auth.uid())=id);
+CREATE FUNCTION public.create_user_profile() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path=public AS $$ BEGIN INSERT INTO public.profiles(id) VALUES(NEW.id) ON CONFLICT DO NOTHING; RETURN NEW; END $$;
+REVOKE EXECUTE ON FUNCTION public.create_user_profile() FROM PUBLIC,anon,authenticated;
+CREATE TRIGGER create_profile_on_signup AFTER INSERT ON auth.users FOR EACH ROW EXECUTE FUNCTION public.create_user_profile();
+INSERT INTO public.profiles(id) SELECT user_id FROM public.user_roles ON CONFLICT DO NOTHING;
+CREATE POLICY avatar_read ON storage.objects FOR SELECT TO authenticated USING(bucket_id='admin-avatars' AND (storage.foldername(name))[1]=(select auth.uid())::text);
+CREATE POLICY avatar_insert ON storage.objects FOR INSERT TO authenticated WITH CHECK(bucket_id='admin-avatars' AND (storage.foldername(name))[1]=(select auth.uid())::text AND (select public.has_role((select auth.uid()),'admin')));
+CREATE POLICY avatar_update ON storage.objects FOR UPDATE TO authenticated USING(bucket_id='admin-avatars' AND (storage.foldername(name))[1]=(select auth.uid())::text) WITH CHECK(bucket_id='admin-avatars' AND (storage.foldername(name))[1]=(select auth.uid())::text);
+CREATE POLICY avatar_delete ON storage.objects FOR DELETE TO authenticated USING(bucket_id='admin-avatars' AND (storage.foldername(name))[1]=(select auth.uid())::text);

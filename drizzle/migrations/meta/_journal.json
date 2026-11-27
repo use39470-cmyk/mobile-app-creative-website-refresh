@@ -8,6 +8,13 @@
       "when": 1795808359308,
       "tag": "0000_admin_inquiries_and_private_chat",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1795809625962,
+      "tag": "0001_admin_profiles",
+      "breakpoints": true
     }
   ]
 }

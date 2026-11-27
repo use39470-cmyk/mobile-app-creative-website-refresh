@@ -130,6 +130,24 @@ export type Database = {
         }
         Relationships: []
       }
+      profiles: {
+        Row: {
+          avatar_path: string
+          display_name: string
+          id: string
+        }
+        Insert: {
+          avatar_path?: string
+          display_name?: string
+          id: string
+        }
+        Update: {
+          avatar_path?: string
+          display_name?: string
+          id?: string
+        }
+        Relationships: []
+      }
       request_limits: {
         Row: {
           hits: number

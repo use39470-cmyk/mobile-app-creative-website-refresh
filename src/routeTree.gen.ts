@@ -17,6 +17,7 @@ import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
 import { Route as AuthenticatedAdminChatsRouteImport } from './routes/_authenticated/admin/chats'
+import { Route as AuthenticatedAdminProfileRouteImport } from './routes/_authenticated/admin/profile'
 import { Route as ApiPublicChatRouteImport } from './routes/api/public/chat'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 
@@ -59,6 +60,12 @@ const AuthenticatedAdminChatsRoute = AuthenticatedAdminChatsRouteImport.update({
   path: '/chats',
   getParentRoute: () => AuthenticatedAdminRoute,
 } as any)
+const AuthenticatedAdminProfileRoute =
+  AuthenticatedAdminProfileRouteImport.update({
+    id: '/profile',
+    path: '/profile',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
 const ApiPublicChatRoute = ApiPublicChatRouteImport.update({
   id: '/api/public/chat',
   path: '/api/public/chat',
@@ -77,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof ResetPasswordRoute
   '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/admin/chats': typeof AuthenticatedAdminChatsRoute
+  '/admin/profile': typeof AuthenticatedAdminProfileRoute
   '/api/public/chat': typeof ApiPublicChatRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
@@ -87,6 +95,7 @@ export interface FileRoutesByTo {
   '/chat': typeof ChatRoute
   '/reset-password': typeof ResetPasswordRoute
   '/admin/chats': typeof AuthenticatedAdminChatsRoute
+  '/admin/profile': typeof AuthenticatedAdminProfileRoute
   '/api/public/chat': typeof ApiPublicChatRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
@@ -100,6 +109,7 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/_authenticated/admin/chats': typeof AuthenticatedAdminChatsRoute
+  '/_authenticated/admin/profile': typeof AuthenticatedAdminProfileRoute
   '/api/public/chat': typeof ApiPublicChatRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
@@ -113,6 +123,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/admin'
     | '/admin/chats'
+    | '/admin/profile'
     | '/api/public/chat'
     | '/api/public/contact'
     | '/admin/'
@@ -123,6 +134,7 @@ export interface FileRouteTypes {
     | '/chat'
     | '/reset-password'
     | '/admin/chats'
+    | '/admin/profile'
     | '/api/public/chat'
     | '/api/public/contact'
     | '/admin'
@@ -135,6 +147,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/_authenticated/admin'
     | '/_authenticated/admin/chats'
+    | '/_authenticated/admin/profile'
     | '/api/public/chat'
     | '/api/public/contact'
     | '/_authenticated/admin/'
@@ -208,6 +221,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminChatsRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
+    '/_authenticated/admin/profile': {
+      id: '/_authenticated/admin/profile'
+      path: '/profile'
+      fullPath: '/admin/profile'
+      preLoaderRoute: typeof AuthenticatedAdminProfileRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
     '/api/public/chat': {
       id: '/api/public/chat'
       path: '/api/public/chat'
@@ -227,11 +247,13 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedAdminRouteChildren {
   AuthenticatedAdminChatsRoute: typeof AuthenticatedAdminChatsRoute
+  AuthenticatedAdminProfileRoute: typeof AuthenticatedAdminProfileRoute
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
 }
 
 const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
   AuthenticatedAdminChatsRoute: AuthenticatedAdminChatsRoute,
+  AuthenticatedAdminProfileRoute: AuthenticatedAdminProfileRoute,
   AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
 }
 

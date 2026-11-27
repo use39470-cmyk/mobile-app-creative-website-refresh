@@ -10,10 +10,13 @@ function ResetPassword(){
  useEffect(()=>{ const type=new URLSearchParams(window.location.hash.slice(1)).get('type');const saved=sessionStorage.getItem('mac-recovery');
    if(type==='recovery'||type==='invite'){ sessionStorage.setItem('mac-recovery','yes'); setReady(true); } else if(saved==='yes')setReady(true);
    else setNotice('Open the password link from your email to continue.');
+   const recoveryReady=()=>{setReady(true);setNotice('');};
+   window.addEventListener('mac-recovery-ready',recoveryReady);
+   return()=>window.removeEventListener('mac-recovery-ready',recoveryReady);
  },[]);
  async function submit(e:React.FormEvent){e.preventDefault();if(password!==confirm){setNotice('Passwords do not match.');return;}setBusy(true);
  try {const {data}=await supabase.auth.getUser();if(!data.user){setNotice('This link has expired. Request a new password link.');return;}
- const {error}=await supabase.auth.updateUser({password});if(error){setNotice(error.message);return;}sessionStorage.removeItem('mac-recovery');await navigate({to:'/admin'});
+ const {error}=await supabase.auth.updateUser({password});if(error){setNotice(error.message);return;}sessionStorage.removeItem('mac-recovery');await navigate({to:'/admin',search:{page:0,search:''}});
  }catch{setNotice('Could not update your password. Please try again.');}finally{setBusy(false);}}
  return <main className="support-theme auth-layout"><div className="auth-content"><img className="auth-logo" src="/nuuke/brand/badges/mobile-app-creative-logo-hd.png" alt="Mobile App Creative"/><h1>Set your password.</h1><form className="support-form" onSubmit={submit}><label>New password<Input type="password" autoComplete="new-password" minLength={12} required value={password} onChange={e=>setPassword(e.target.value)}/></label><label>Confirm password<Input type="password" autoComplete="new-password" required value={confirm} onChange={e=>setConfirm(e.target.value)}/></label><p role="status">{notice}</p><Button disabled={!ready||busy} type="submit">{busy?'Saving…':'Save password'}</Button></form><Link to="/auth">Back to sign in</Link></div></main>;
 }
