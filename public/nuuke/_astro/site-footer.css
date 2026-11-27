@@ -35,3 +35,60 @@
 .mac-chat-launcher{position:fixed;right:24px;bottom:24px;z-index:2147483000;width:58px;height:58px;border:0;border-radius:50%;display:grid;place-items:center;cursor:pointer;background:var(--support-widget-accent);color:var(--support-widget-foreground);box-shadow:var(--support-widget-shadow)}
 .mac-chat-window{position:fixed;right:24px;bottom:94px;z-index:2147483001;width:min(390px,calc(100vw - 32px));height:min(590px,calc(100dvh - 120px));border-radius:8px;overflow:hidden;box-shadow:var(--support-widget-shadow);background:var(--support-widget-foreground)}.mac-chat-window[hidden]{display:none}.mac-chat-window iframe{width:100%;height:100%;border:0;display:block}.mac-chat-close{position:absolute;right:12px;top:20px;z-index:1;background:transparent;color:var(--support-widget-accent);border:0;width:32px;height:32px;font-size:26px;cursor:pointer}
 @media(max-width:560px){.mac-chat-launcher{right:16px;bottom:16px;width:52px;height:52px}.mac-chat-window{right:16px;bottom:82px;height:calc(100dvh - 104px)}}
+
+/* Android and narrow-screen layout: keep real content within its grid tracks. */
+.h-msg{grid-template-columns:minmax(0,1fr);min-width:0}
+.h-msg .h-msg-body{min-width:0;box-sizing:border-box}
+@media(max-width:760px){
+ .h-msg .h-msg-line{white-space:normal;font-size:2.5rem;letter-spacing:0;line-height:1.08;padding-inline:var(--gutter);max-width:100%;min-width:0;overflow-wrap:break-word;transform:none!important}
+ .h-msg .h-msg-body .t-lead{font-size:1.125rem;line-height:1.65}
+ .h-hero{align-content:center!important;min-height:100svh;padding-top:7rem!important;padding-bottom:8rem!important}
+ .h-hero .h-q.h-q{font-size:2.5rem!important;line-height:1.03!important;letter-spacing:0}
+ .h-sub{font-size:1.125rem!important;line-height:1.5}
+ .h-stage,.home-pricing-head,.home-pricing-list,.home-pricing-name{min-width:0}
+ .home-pricing-head h2{font-size:2.25rem;overflow-wrap:break-word;letter-spacing:0}
+ .mac-chat-launcher{bottom:calc(var(--nav-h,56px) + 2rem + env(safe-area-inset-bottom))}
+ .mac-chat-window{bottom:calc(var(--nav-h,56px) + 6rem + env(safe-area-inset-bottom));height:min(590px,calc(100dvh - var(--nav-h,56px) - 8rem))}
+ .ss[data-ss]{height:calc(var(--n) * 100svh + 100svh)}
+ .ss[data-ss].is-static{height:auto}
+ .ss[data-ss] .ss-panels{bottom:calc(var(--nav-h,56px) + 2.5rem);min-width:0}
+ .ss[data-ss] .ss-title{font-size:2.5rem;letter-spacing:0;line-height:1.05}
+ .ss[data-ss] .ss-name{font-size:2rem;letter-spacing:0;line-height:1.08;overflow-wrap:break-word}
+ .ss[data-ss] .ss-line{font-size:1rem;line-height:1.5}
+ .ss[data-ss] .ss-chips{gap:.375rem}
+ .ss[data-ss] .ss-chips li{font-size:.625rem;padding:.3rem .5rem;letter-spacing:0}
+ .ss[data-ss] .ss-fb{display:grid;grid-template-columns:112px minmax(0,1fr);padding:1rem;gap:1rem;border-radius:8px}
+ .ss[data-ss] .ss-fb>span{min-width:0;overflow-wrap:break-word}
+ .ss[data-ss] .ss-fb strong{font-size:1.125rem;line-height:1.2}
+ .ss[data-ss] .ss-fb .sv--sm{width:112px}
+ .ss[data-ss] .ss-fb .sv-scene{scale:.44}
+ .ss[data-ss].is-static .ss-panel[data-ss-panel="0"]{filter:none}
+}
+@media(max-width:360px){
+ .ss[data-ss] .ss-fb{grid-template-columns:88px minmax(0,1fr);gap:.75rem}
+ .ss[data-ss] .ss-fb .sv--sm{width:88px}
+ .ss[data-ss] .ss-name{font-size:1.75rem}
+}
+@media(max-height:600px) and (max-width:760px){
+ .ss[data-ss]:not(.is-static) .ss-chips{display:none}
+ .ss[data-ss] .ss-name{font-size:1.5rem}
+ .ss[data-ss] .ss-line{font-size:.875rem}
+}
+
+@media(max-width:760px){
+ .pill{width:calc(100% - 24px);max-width:390px}
+ .pill .pill-track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;min-width:0;width:100%;gap:0}
+ .pill .pill-link{min-width:0;padding-inline:.4rem;font-size:.75rem;letter-spacing:0;justify-content:center}
+ .pill .pill-more{padding-inline:.65rem;flex-shrink:0}
+ .h-film-head{text-align:left!important;justify-items:start!important;min-width:0}
+ .h-film-head h2{font-size:2.25rem;line-height:1.1;letter-spacing:0}
+ .ss[data-ss] .ss-fb .sv--sm{overflow:visible}
+ .ss[data-ss] .ss-fb .sv-scene{transform-origin:50% 50%}
+}
+
+@media(max-width:760px){
+ html{overflow-x:clip}
+ #starfield{width:100%!important;max-width:100%!important}
+ .pill{width:calc(100vw - 24px)!important}
+ .site-header,.hud{max-width:100vw}
+}

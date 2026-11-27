@@ -41,3 +41,5 @@ use the editor.
 - Resolve inquiry package amounts from the server allowlist rather than visitor-provided prices, so package quotes remain trustworthy.
 - Keep admin profile attributes in owner-scoped profiles and private avatar storage; never place privileges in profile fields.
 - Keep inquiry and conversation pagination/filter state in route search parameters so admin links and reloads preserve context.
+
+- Keep mobile Services graphics initialization proximity-triggered and recover from timed-out loads by clearing the static state on success; this avoids competing with the opening scene and preserves animation on slower phones.

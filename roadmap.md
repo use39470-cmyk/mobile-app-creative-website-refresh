@@ -21,3 +21,6 @@
 - [x] Add editable admin profile with name and avatar.
 
 - [x] Apply the supplied four AI packages to pricing overview, AI detail and inquiry selections; verify prices and scope.
+
+- [x] Fix Android homepage text sizing and navigation overlaps.
+- [x] Repair Services mobile loading/recovery and verify animation plus readable fallback.
