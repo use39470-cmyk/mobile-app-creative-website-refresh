@@ -92,7 +92,8 @@ describe("App routing", () => {
       const contact = readFileSync(join(websiteDirectory, "contact.html"), "utf8");
 
       prices.forEach((price, index) => {
-        const tier = ["starter", "professional", "premium"][index]!;
+        const tier = ["starter", "professional", "premium"][index];
+        if (!tier) throw new Error("Missing package tier");
         const packageId = `${service}-${tier}`;
         const label = `From $${price.toLocaleString("en-US")}${monthly ? "/mo" : ""}`;
 

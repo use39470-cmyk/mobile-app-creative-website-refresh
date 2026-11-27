@@ -12,3 +12,8 @@
 - [x] Enlarge the 3D launch phone (pad and space scenes), seat it on the launch pad, and verify the full desktop launch flow.
 - [x] Research and apply distinct market-aligned prices across all services while preserving the supplied animation packages; synchronize inquiries and tests.
 - [x] Enlarge the header logo and keep it visible while scrolling; verify desktop and mobile.
+
+- [ ] Add secure admin login and footer links.
+- [ ] Save contact/package inquiries and show them in admin.
+- [ ] Add visitor chat and a separate admin chat page with replies.
+- [ ] Verify submissions, permissions, and two-way chat.

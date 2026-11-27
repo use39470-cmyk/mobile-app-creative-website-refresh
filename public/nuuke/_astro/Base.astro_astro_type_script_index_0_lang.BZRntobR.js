@@ -1,3 +1,4 @@
+import "./support-widget.js";
 import{t as e}from"./motion.BXpYRfU6.js";import{o as t,t as n}from"./audio.BVyMN1l2.js";var r=`
 attribute vec3 a_pos;      // x,y in [-1,1], z = depth 0..1
 attribute float a_seed;

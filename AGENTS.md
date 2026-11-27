@@ -35,3 +35,7 @@ use the editor.
 - Keep service-specific pricing pages and their shared presentation alongside the imported pages under `public/nuuke`, so existing multipage navigation and interactions remain intact.
 - Render confirmed packages in both the static pricing overview and service detail; inquiry links carry a package identifier resolved by an allowlist on the contact page, so selected package names and prices remain consistent.
 - Keep footer badge styling in one stylesheet loaded by every imported page, so shared footer changes preserve the original compiled layouts.
+
+- Keep support UI in TanStack routes and bridge the imported static pages through one shared support widget, so original animations and navigation stay intact.
+- Protect inquiries and admin chat actions with database admin-role policies; visitor chat access uses hashed, high-entropy per-conversation capability keys checked only in server handlers.
+- Resolve inquiry package amounts from the server allowlist rather than visitor-provided prices, so package quotes remain trustworthy.
