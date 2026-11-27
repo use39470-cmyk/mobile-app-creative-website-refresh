@@ -94,19 +94,24 @@ export const packages: Record<string, ServicePackage> = {
     "billing": "month"
   },
   "ai-automation-starter": {
-    "name": "Starter Automation Package",
+    "name": "Basic AI Package",
     "service": "AI Automation",
-    "price": 2500
+    "price": 499
+  },
+  "ai-automation-standard": {
+    "name": "Standard AI Package",
+    "service": "AI Automation",
+    "price": 999
   },
   "ai-automation-professional": {
     "name": "Professional AI Package",
     "service": "AI Automation",
-    "price": 6500
+    "price": 1999
   },
   "ai-automation-premium": {
-    "name": "Enterprise AI Package",
+    "name": "Premium AI Package",
     "service": "AI Automation",
-    "price": 15000
+    "price": 3999
   }
 };
 export function resolvePackage(id: string | undefined) { return id && Object.hasOwn(packages, id) ? packages[id] : undefined; }

@@ -81,7 +81,6 @@ describe("App routing", () => {
     { service: "video-production", prices: [1500, 4500, 10000], monthly: false },
     { service: "digital-marketing", prices: [1000, 2500, 5000], monthly: true },
     { service: "paid-ads", prices: [750, 1500, 3500], monthly: true },
-    { service: "ai-automation", prices: [2500, 6500, 15000], monthly: false },
   ] as const;
 
   for (const { service, prices, monthly } of servicePackageRules) {

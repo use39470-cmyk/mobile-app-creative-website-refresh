@@ -75,3 +75,6 @@
 .package-price.package-price{display:inline-block;padding:.35em .7em;border-radius:14px;background:linear-gradient(135deg,#ff5fa2,#8b5cf6);color:#fff;letter-spacing:.01em;box-shadow:0 10px 30px rgba(139,92,246,.35),inset 0 1px 0 rgba(255,255,255,.25)}
 .package-price.package-price--quote{font-size:1.6rem;padding:.4em .8em}
 .package-price.package-price{font-size:clamp(1.65rem,2.7vw,2.65rem);white-space:nowrap}
+
+.package-grid--ai{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:760px){.package-grid--ai{grid-template-columns:1fr}}
